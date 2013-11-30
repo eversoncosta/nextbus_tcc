@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">NextBus10</string>
+    <string name="action_settings">Settings</string>
+    <string name="ola_mundo">teste de versionamento</string>
+    <string name="tempoChegada">Tempo de chegada</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="act_principal">MainActivity</string>
+    <string name="title_activity_act_tempo_chegada">Act_tempoChegada</string>
+    <string name="title_activity_act__sscreen">Act_SScreen</string>
+    <string name="title_activity_tempo_chegada2">Tempo de chegada aprox.</string>
+
+</resources>

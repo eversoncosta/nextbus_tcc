@@ -49,41 +49,14 @@ import android.widget.Toast;
 public class Act_Principal extends Activity implements LocationListener  {
 
 	private LocationManager locationManager;
+	List<OnibusModel> onibusColecao = new ArrayList<OnibusModel>();
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_principal);
 		
-		
-	     final RadioButton[] rb = new RadioButton[50]; 
-	        RadioGroup rg = (RadioGroup) findViewById(R.id.radiogroup);//not this RadioGroup rg = new RadioGroup(this);
-	        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
-	           for(int i=0; i<50; i++)
-	        	   
-	           {
-	        	   
-	        	   rb[i]  = new RadioButton(this);
-	               rg.addView(rb[i]); 
-	               rb[i].setText("busão"+i);
-	           }
-		
-		
-		
-		Button butao  = (Button) findViewById(R.id.button1);
-		butao.setOnClickListener(new OnClickListener() {
-								
-			@Override
-			public void onClick(View v) {
-
-				Intent inten1 = new Intent(Act_Principal.this,TempoChegada2.class);
-				startActivity(inten1);
-			}
-		 });
-		
-		
-		
-	    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+			    locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 		
 		locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
 				3000,   // 3 sec
@@ -104,8 +77,47 @@ public class Act_Principal extends Activity implements LocationListener  {
                
                Gson gson = new Gson();
                List<OnibusModel> onibus = (List<OnibusModel>) gson.fromJson(output,new TypeToken<List<OnibusModel>>(){}.getType());
-               String outra = "";
-               String sfds = outra;
+               
+               onibusColecao = onibus;
+               
+               final RadioButton[] rb = new RadioButton[50]; 
+   	        RadioGroup rg = (RadioGroup) findViewById(R.id.radiogroup);//not this RadioGroup rg = new RadioGroup(this);
+   	        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+   	           for(int i=0; i<onibus.size(); i++)
+   	           {
+   	        	   rb[i]  = new RadioButton(this);
+   	               rg.addView(rb[i]);
+   	               rb[i].setText(onibus.get(i).linha_descricao);
+   	               rb[i].setId(i);
+   	           }
+   	           
+   	        Button butao  = (Button) findViewById(R.id.button1);
+   			butao.setOnClickListener(new OnClickListener() {
+   									
+   				@Override
+   				public void onClick(View v) {
+
+   					Intent inten1 = new Intent(Act_Principal.this,TempoChegada2.class);
+   					Bundle params = new Bundle();
+   					
+   				 RadioGroup rg = (RadioGroup) findViewById(R.id.radiogroup);
+   				 
+   				//String selectedRadioValue = ((RadioButton)findViewById(rg.getCheckedRadioButtonId() )).getText().toString();
+   				int selectedRadioValue = ((RadioButton)findViewById(rg.getCheckedRadioButtonId() )).getId();
+   					
+   					//String resposta = selectedRadioValue;
+   				String resposta = onibusColecao.get(selectedRadioValue).linha_id;
+   	                params.putString("mensagem", resposta);
+   	                inten1.putExtras(params);
+   					startActivity(inten1);
+   				}
+   			 });
+   			
+   			
+   			
+
+   		
+   		
                
         } catch (Exception e) {    
         	e.printStackTrace();    

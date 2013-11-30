@@ -1,8 +1,23 @@
 package pacote.NextBus10;
 
+import java.io.InputStream;
+import java.net.URI;
+import java.util.List;
+
+import org.apache.http.HttpEntity;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.DefaultHttpClient;
+import org.apache.http.util.EntityUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
 import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
 import android.view.Menu;
+import android.widget.Toast;
 
 public class TempoChegada2 extends Activity {
 
@@ -10,6 +25,35 @@ public class TempoChegada2 extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_tempo_chegada2);
+		
+		Intent intent = getIntent();
+		  
+		  Bundle params = intent.getExtras();  
+		   
+		  if(params!=null)
+		  {   
+		   String mostraTexto = params.getString("mensagem");
+		   
+		   
+		   DefaultHttpClient httpClient = new DefaultHttpClient();    
+	        URI uri;    
+	        InputStream data = null;    
+	        try {    
+	        	   uri = new URI("http://10.0.2.2:8080/Next_Bus/WebGetTempo?IdLinha="+mostraTexto);    
+	               HttpGet method = new HttpGet(uri);    
+	               HttpResponse response = httpClient.execute(method);
+	               HttpEntity httpEntity = response.getEntity();
+	               String output = EntityUtils.toString(httpEntity);
+	               
+	               Gson gson = new Gson();
+	               List<OnibusModel> onibus = (List<OnibusModel>) gson.fromJson(output,new TypeToken<List<OnibusModel>>(){}.getType());
+	        }
+	        catch (Exception ex)
+	        {
+	        	
+	        }
+		   
+		  }
 	}
 
 	@Override

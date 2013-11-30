@@ -5,6 +5,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -38,6 +39,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
@@ -51,6 +54,22 @@ public class Act_Principal extends Activity implements LocationListener  {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.act_principal);
+		
+		
+	     final RadioButton[] rb = new RadioButton[50]; 
+	        RadioGroup rg = (RadioGroup) findViewById(R.id.radiogroup);//not this RadioGroup rg = new RadioGroup(this);
+	        rg.setOrientation(RadioGroup.VERTICAL);//or RadioGroup.VERTICAL
+	           for(int i=0; i<50; i++)
+	        	   
+	           {
+	        	   
+	        	   rb[i]  = new RadioButton(this);
+	               rg.addView(rb[i]); 
+	               rb[i].setText("busão"+i);
+	           }
+		
+		
+		
 		Button butao  = (Button) findViewById(R.id.button1);
 		butao.setOnClickListener(new OnClickListener() {
 								

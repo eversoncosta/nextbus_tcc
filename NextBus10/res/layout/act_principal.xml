@@ -8,52 +8,39 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <RadioButton
-        android:id="@+id/radio1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radioGroup1"
-        android:layout_centerVertical="true"
-        android:text="Jiboia Branca" />
-
-    <RadioButton
-        android:id="@+id/radio0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radioGroup1"
-        android:layout_below="@+id/radio1"
-        android:checked="true"
-        android:text="Marituba" />
-
-    <RadioGroup
-        android:id="@+id/radioGroup1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/radio2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignTop="@+id/radio1"
-        android:layout_marginLeft="24dp" >
-
-    </RadioGroup>
-
     <Button
         android:id="@+id/button1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="46dp"
-        android:layout_marginTop="89dp"
-        android:layout_toRightOf="@+id/radioGroup1"
+        android:layout_marginLeft="95dp"
+        android:layout_marginTop="2dp"
         android:onClick="@string/tempoChegada"
         android:text="@string/tempoChegada" />
-
-    <RadioButton
-        android:id="@+id/radio2"
+    
+      <ScrollView
+          android:id="@+id/scrollView1"
+          android:layout_width="fill_parent"
+          android:layout_height="410dp"
+          android:layout_centerInParent="true"
+          android:layout_marginTop="100dp" >
+        
+    <LinearLayout
+    android:id="@+id/linearMain"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+    <RadioGroup
+        android:id="@+id/radiogroup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/radio0"
-        android:layout_below="@+id/radio0"
-        android:layout_marginTop="58dp"
-        android:text="Jardim Sideral" />
+        android:orientation="vertical">
+    </RadioGroup>
+	</LinearLayout>
+        
+    </ScrollView>
+    
+    
 
 </RelativeLayout>

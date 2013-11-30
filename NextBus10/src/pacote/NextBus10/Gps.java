@@ -29,7 +29,7 @@ public class Gps implements LocationListener {
 	    }
 	 
 	    public void onProviderEnabled(String arg0) {
-	    //chamado quando o provedor é ativada pelo usuário
+	    //chamado quando o provedor é ativada pelo usuário o
 	    }
 	 
 	    public void onProviderDisabled(String arg0) {

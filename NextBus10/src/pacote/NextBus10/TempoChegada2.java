@@ -34,7 +34,7 @@ public class TempoChegada2 extends Activity {
 		  {   
 		   String mostraTexto = params.getString("mensagem");
 		   
-		   
+		   String endereco = "Avenida Duque de Caxias";
 		   DefaultHttpClient httpClient = new DefaultHttpClient();    
 	        URI uri;    
 	        InputStream data = null;    

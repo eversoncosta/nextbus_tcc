@@ -41,4 +41,4 @@ public class Gps implements LocationListener {
 	    }
 
 }
-//teste do terceiro comite 74555huhaushasas bbbbbbb blabalblablablabla
+//PRONTO! ACABEI DE TESTAR. ESTA TRAZENDO OS ONIBUS... FALTA OS RADIO BUTTON

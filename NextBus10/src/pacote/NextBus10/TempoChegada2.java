@@ -17,6 +17,8 @@ import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.Menu;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class TempoChegada2 extends Activity {
@@ -46,7 +48,10 @@ public class TempoChegada2 extends Activity {
 	               String output = EntityUtils.toString(httpEntity);
 	               
 	               Gson gson = new Gson();
-	               List<OnibusModel> onibus = (List<OnibusModel>) gson.fromJson(output,new TypeToken<List<OnibusModel>>(){}.getType());
+	               OnibusModel onibus = (OnibusModel) gson.fromJson(output,new TypeToken<OnibusModel>(){}.getType());
+	               
+	      	        EditText edittext  = (EditText) findViewById(R.id.editText1);
+	      	        edittext.setText(onibus.onibus_endereco_atual);
 	        }
 	        catch (Exception ex)
 	        {

@@ -113,11 +113,7 @@ public class Act_Principal extends Activity implements LocationListener  {
    				}
    			 });
    			
-   			
-   			
 
-   		
-   		
                
         } catch (Exception e) {    
         	e.printStackTrace();    

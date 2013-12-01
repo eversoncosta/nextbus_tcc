@@ -53,7 +53,7 @@ public class TempoChegada2 extends Activity {
 	      	        EditText edittext  = (EditText) findViewById(R.id.editText1);
 	      	        edittext.setText(onibus.onibus_endereco_atual);
 	      	        
-	      	      EditText tempoChegada  = (EditText) findViewById(R.id.textTempoChegada);
+	      	      EditText tempoChegada  = (EditText) findViewById(R.id.texto_sua_posicao);
 	      	      tempoChegada.setText(onibus.tempo_chegada);
 	        }
 	        catch (Exception ex)
